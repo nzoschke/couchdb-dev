@@ -60,7 +60,7 @@ class Server
   	
     # poll until dns_name becomes available
   	loop do
-  	  instance = ec2.describe_instances(instance[:aws_instance_id]).first
+  	  instance = ec2.describe_instances(instance[:aws_instance_id]).first rescue {}
   	  break if instance.has_key?(:dns_name) and !instance[:dns_name].empty?
   	  sleep 2
 		end
