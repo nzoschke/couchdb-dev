@@ -8,3 +8,17 @@ fatal: '/etc/security/limits.conf' is outside repository
 
 rabbit-d $ git remote add instance ssh://root@ec2-184-73-27-119.compute-1.amazonaws.com/
 rabbit-d $ GIT_SSH=./ssh.sh git pull instance master
+
+--
+
+on instance
+
+/# git checkout -b stock
+/# git add etc/profile b/etc/profile
+/# git add etc/security/limits.conf
+/# git add usr/lib/rabbitmq/lib/rabbitmq_server-1.7.0/sbin/rabbitmq-server
+/# git commit -m 'stock rabbitmq file handle and ets limit config'
+
+/# git checkout -b master
+/# git merge stock
+(make change)
