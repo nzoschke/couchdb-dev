@@ -22,3 +22,8 @@ on instance
 /# git checkout -b master
 /# git merge stock
 (make change)
+
+--
+
+$ ssh -i id_rsa -L 55672:localhost:55672 root@ec2-184-73-27-119.compute-1.amazonaws.com
+$ open http://localhost:55672/
