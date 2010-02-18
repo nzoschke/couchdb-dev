@@ -26,3 +26,7 @@ if [ "$PS1" ]; then
 fi
 
 umask 022
+
+# increase file descriptor limits to what is in /etc/security/limits.conf
+echo 65535 > /proc/sys/fs/file-max
+ulimit -n 65536
