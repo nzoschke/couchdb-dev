@@ -5,4 +5,4 @@ cd /
 git init
 git remote add github-ro git://github.com/nzoschke/<%= name %>.git
 git pull github-ro master
-./boot.sh # pass control non-userdata script
+chmod +x boot.sh && ./boot.sh # pass control non-userdata script

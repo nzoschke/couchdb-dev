@@ -3,17 +3,13 @@ require 'rubygems'
 require 'erb'
 require 'aws'
 require 'right_aws'
-require 'sdb/active_sdb'
 
 class Server
   ACCESS_KEY_ID     = "AKIAJBBCS3TU7UNTYZJQ"
   SECRET_ACCESS_KEY = "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"
-
   SDB_DOMAIN_NAME   = "sumo2"
-
   AMI32             = "ami-3ecc2e57"
   AVAILABILITY_ZONE = "us-east-1d"
-
   SSH_USER          = "root"
 
   def name
@@ -62,6 +58,7 @@ class Server
   	instance = ec2.run_instances(AMI32, 1, 1, [name], "sumo", user_data, 'public').first
   	put(instance)
   	
+    # poll until dns_name becomes available
   	loop do
   	  instance = ec2.describe_instances(instance[:aws_instance_id]).first
   	  break if instance.has_key?(:dns_name) and !instance[:dns_name].empty?
