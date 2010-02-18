@@ -1,4 +1,10 @@
-script to fetch git remote
-HARDCODE
-  keypair
-  git remote
+cd / ; git init
+# git add /etc/security/limits.conf 
+fatal: '/etc/security/limits.conf' is outside repository
+# git add etc/security/limits.conf
+
+
+--
+
+rabbit-d $ git remote add instance ssh://root@ec2-184-73-27-119.compute-1.amazonaws.com/
+rabbit-d $ GIT_SSH=./ssh.sh git pull instance master

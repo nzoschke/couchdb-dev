@@ -105,4 +105,3 @@ action = ARGV.shift
 @server.stop(ARGV[0]) if action  == "server:stop"
 @server.ssh if action  == "server:ssh"
 @server.debug if action == "debug"
-
